@@ -1,11 +1,9 @@
 package main
 
-import "io"
-import "os"
-
-func main() {
-	in := NewScanner(os.Stdin)
-}
+import (
+	"io"
+	"os"
+)
 
 func assert(x bool) {
 	if !x {
@@ -14,13 +12,10 @@ func assert(x bool) {
 }
 
 type Scanner struct {
-	is io.Reader
-
+	is     io.Reader
 	buffer [1 << 16]byte
-
-	size int
-
-	pos int
+	size   int
+	pos    int
 }
 
 func NewScanner(in io.Reader) *Scanner {
@@ -77,4 +72,8 @@ func (s *Scanner) NextInt() int {
 		}
 		return n
 	}
+}
+
+func main() {
+	in := NewScanner(os.Stdin)
 }
