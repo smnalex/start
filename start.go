@@ -3,6 +3,7 @@ package main
 import (
 	"io"
 	"os"
+	"fmt"
 )
 
 func assert(x bool) {
