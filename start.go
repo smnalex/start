@@ -26,7 +26,7 @@ func NewScanner(in io.Reader) *Scanner {
 func (s *Scanner) nextChar() int {
 	if s.pos >= s.size {
 		var err error
-		s.size, err = s.is.Read(s.buffer[0:len(s.buffer)])
+		s.size, err = s.is.Read(s.buffer[:])
 		s.pos = 0
 		if err == io.EOF {
 			return -1
